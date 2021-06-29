@@ -15,9 +15,19 @@ function displayAll() {
       inbox()
     })
 
-    todoItem.innerText = `${x}`
+    const dateEntry = document.createElement('input')
+    dateEntry.setAttribute('type', 'date')
+
+    dateEntry.addEventListener('change', () =>{
+      x.date = dateEntry.value
+      console.log(todoItems.storage)
+      inbox()
+    })
+
+    todoItem.innerText = `${x.item} date: ${x.date}`
     todoItem.id = 'todoListItem'
     displayAll.appendChild(todoItem)
+    displayAll.appendChild(dateEntry)
     displayAll.appendChild(removeItem)
   })
 

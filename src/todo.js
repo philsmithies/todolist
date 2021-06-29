@@ -32,7 +32,8 @@ function createTodo() {
     }
 
     addBtn.addEventListener('click', () => {
-      todoItems.storage.push(textEntry.value)
+      todoItems.storage.push({item:`${textEntry.value}`, date: ''})
+      console.log(todoItems.storage)
       resetTodo()
       inbox()
     })
