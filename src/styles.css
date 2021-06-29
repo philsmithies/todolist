@@ -7,7 +7,7 @@ body{
 
 nav{
   width: 100%;
-  background-color: #CEE5D0;
+  background-color: #ffd737;
   height: 4em;
   display: flex;
   justify-content: center;
@@ -41,17 +41,59 @@ li a:hover{
 
 #content{
   padding: 5em;
-  background-color: pink;
+  background-color: rgb(250, 225, 230);
 }
 
 #todo{
-  width: 80%;
+  width: 100%;
   border: 1px solid black;
-  height: 3em;
-  border-radius: 15px;
+  height: 2.5em;
+  border-radius: 10px;
 }
 
 #todo:hover{
   cursor: pointer;
   background-color: rgb(203, 203, 203);
+}
+
+#toDoOptions{
+  display: flex;
+  justify-content: space-between;
+}
+
+#newTodo{
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#textEntry{
+  margin: 0 auto;
+  width: 100%;
+  border: 1px solid black;
+  height: 2em;
+  border-radius: 10px;
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+#addBtn{
+  width: 47%;
+  height: 2em;
+  background-color: green;
+  border-radius: 5px;
+  border: 0.5px solid black;
+}
+
+#cancelBtn{
+  width: 47%;
+  height: 2em;
+  background-color: red;
+  border-radius: 5px;
+  border: 0.5px solid black;
+}
+
+button:hover{
+  cursor: pointer;
 }
