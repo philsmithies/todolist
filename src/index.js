@@ -1,11 +1,12 @@
 import './styles.css';
-const content = document.getElementById('content')
-
-console.log('hello')
+import navBar from './navbar'
+import inbox from './inbox'
 
 function component() {
-  console.log
-  return content;
+navBar()
+inbox()
+const content = document.getElementById('content')
+return content;
 }
 
 document.body.appendChild(component());
