@@ -7,33 +7,48 @@ function displayAll() {
   const displayAll = document.createElement('div');
 
   todoItems.storage.forEach((x, i) => {
-    const todoItem = document.createElement('p')
+    const todoItem = document.createElement('div')
+    const noDateDiv = document.createElement('div'); 
+    const todoText = document.createElement('p')
     const removeItem = document.createElement('button')
-    removeItem.innerText = 'x'
+    const noDate = document.createElement('p')
 
+    todoItem.id = 'todoItem'
+
+    noDateDiv.id = 'noDateDiv'
+    displayAll.id = 'allContainer'
+
+    removeItem.innerText = 'x'
     removeItem.addEventListener('click', () => {
       todoItems.storage.splice(i, 1)
       console.log(todoItems.storage)
       inbox()
     })
 
-    const noDate = document.createElement('p')
+    todoText.innerText = `${x.item} ${x.date ? x.date : ''}`
+    todoText.id = 'todoListItem'
 
-    const dateEntry = document.createElement('input')
-    dateEntry.setAttribute('type', 'date')
+    if (!x.date) {
+      noDate.innerText = 'No Date'
+      noDate.addEventListener('click', () => {
+        noDate.style.display = 'none'
+        const dateEntry = document.createElement('input')
+        dateEntry.setAttribute('type', 'date')
+        displayAll.appendChild(dateEntry)
+        dateEntry.addEventListener('change', () =>{
+          let dateInput = parseISO(dateEntry.value)
+          console.log(todoItems.storage)
+          x.date = (format(dateInput, 'dd/MM/yyyy'))
+          inbox()
+        })
+      })
+    }
+    todoItem.appendChild(noDate)
+    todoItem.appendChild(removeItem)
+    todoItem.appendChild(todoText)
+    todoItem.appendChild(noDateDiv)
 
-    dateEntry.addEventListener('change', () =>{
-      let dateInput = parseISO(dateEntry.value)
-      console.log(todoItems.storage)
-      x.date = (format(dateInput, 'dd/MM/yyyy'))
-      inbox()
-    })
-
-    todoItem.innerText = `${x.item} date: ${x.date}`
-    todoItem.id = 'todoListItem'
     displayAll.appendChild(todoItem)
-    displayAll.appendChild(dateEntry)
-    displayAll.appendChild(removeItem)
   })
 
   return displayAll

@@ -16,7 +16,7 @@ function createInbox() {
 
 function loadInbox(){
   const content = document.getElementById('content')
-  content.textContent = ''
+  content.innerHTML = ''
   content.appendChild(createInbox())
 }
 
