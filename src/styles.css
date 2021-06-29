@@ -97,3 +97,14 @@ li a:hover{
 button:hover{
   cursor: pointer;
 }
+
+#todoListItem{
+  width: 100%;
+  border: 1px solid black;
+  height: 2.5em;
+  border-radius: 10px;
+  background-color: rgb(203, 203, 203);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

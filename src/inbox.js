@@ -1,4 +1,5 @@
 import createTodo from './todo'
+import displayAll from './displayAll';
 
 function createInbox() {
 
@@ -8,6 +9,7 @@ function createInbox() {
   heading.innerText = 'Inbox'
   inbox.appendChild(heading)
   inbox.appendChild(createTodo())
+  inbox.appendChild(displayAll())
 
   return inbox
 }

@@ -1,4 +1,5 @@
 import todoItems from './todoItems';
+import inbox from './inbox'
 
 function createTodo() {
   const newTodo = document.createElement('div')
@@ -24,17 +25,25 @@ function createTodo() {
     addBtn.innerText = 'Add'
     addBtn.id = 'addBtn'
 
-    addBtn.addEventListener('click', () => {
-      todoItems.storage.push(textEntry.value)
+    function resetTodo() {
       textEntry.value = ''
       enterTodo.style.display = 'none'
       addTask.style.display = 'block'
-      console.log(todoItems.storage)
+    }
+
+    addBtn.addEventListener('click', () => {
+      todoItems.storage.push(textEntry.value)
+      resetTodo()
+      inbox()
     })
 
     const cancelBtn = document.createElement('button')
     cancelBtn.innerText = 'Cancel'
     cancelBtn.id = 'cancelBtn'
+
+    cancelBtn.addEventListener('click', () => {
+      resetTodo()
+    })
     
     enterTodo.appendChild(textEntry)
     toDoOptions.appendChild(addBtn)

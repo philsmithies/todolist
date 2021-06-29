@@ -1,5 +1,5 @@
 const todoItems = (() => {
-  const storage = ['this is a todo']
+  const storage = ['this is a todo', 'another to do']
   return {
     storage: storage
   }
