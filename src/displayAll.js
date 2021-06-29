@@ -1,5 +1,7 @@
 import todoItems from './todoItems';
 import inbox from './inbox'
+import { format } from 'date-fns'
+import { parseISO } from 'date-fns' 
 
 function displayAll() {
   const displayAll = document.createElement('div');
@@ -15,12 +17,15 @@ function displayAll() {
       inbox()
     })
 
+    const noDate = document.createElement('p')
+
     const dateEntry = document.createElement('input')
     dateEntry.setAttribute('type', 'date')
 
     dateEntry.addEventListener('change', () =>{
-      x.date = dateEntry.value
+      let dateInput = parseISO(dateEntry.value)
       console.log(todoItems.storage)
+      x.date = (format(dateInput, 'dd/MM/yyyy'))
       inbox()
     })
 
